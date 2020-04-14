@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="tabellaNew.css">
+    </head>
+    <body>
+        <div class="center">
+            <button class="btn waves-effect waves-light btn-small red lighten-4 black-text" onclick="tabella()">Generare la tabella</button>
+            <button class="btn waves-effect waves-light btn-small red lighten-2 black-text" onclick="pari()">Mostrare solo pari</button>
+            <button class="btn waves-effect waves-light btn-small teal lighten-1 black-text" onclick="dispari()">Mostrare solo dispari</button>
+        </div>
+        
+            <table id="demo"></table>
+    <script>
+        var arr = new Array();
+
+        function tabella(){
+            var str = "";
+            var i,j;
+        
+        for (i=0; i<10; i++){
+            arr[i]= new Array(); 
+            for (j=0; j<10; j++){
+                arr[i][j] = Math.round(Math.random()*100);
+            }
+        }
+        console.log(arr);
+        for (i=0; i<10; i++){
+            str += "<tr>";
+            for (j=0; j<8; j++){
+                
+                    str += "<td class='center-align red lighten-4'>" +arr[i][j]+"</td>";
+                
+            }
+            str += "</tr>"
+        }
+            document.getElementById("demo").innerHTML= str;
+        }
+        function pari(){
+            var str = "";
+            var i,j;
+
+            for (i=0; i<10; i++){
+            str += "<tr class=''>";
+            for (j=0; j<8; j++){
+                if (arr[i][j]%2 == 0){
+                    str += "<td class='center-align red lighten-2'>" +arr[i][j]+"</td>";
+                    }
+                else{
+                    str += "<td class='center-align red lighten-4'>"+arr[i][j]+"</td>";
+                }
+            }
+            str += "</tr>";
+        }
+        
+        document.getElementById("demo").innerHTML= str;
+
+        }
+        function dispari(){
+            var str = "";
+            var i,j;
+            
+            for (i=0; i<10; i++){
+            str += "<tr>";
+            for (j=0; j<8; j++){
+                if (arr[i][j]%2 == 1){
+                    str += "<td class='center-align teal lighten-1'>" +arr[i][j]+"</td>";
+                    }
+                else{
+                    str += "<td class='center-align red lighten-4'>"+arr[i][j]+"</td>";
+                }
+            }
+            str += "</tr>";
+        }
+        
+        document.getElementById("demo").innerHTML= str;
+
+        }
+
+    </script>
+    
+    </body>
+</html>
