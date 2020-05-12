@@ -10,6 +10,7 @@
         input#testo{
             margin-left: 34.2%;
         }
+        
     </style>
 </head>
 <body>
@@ -19,18 +20,32 @@
             <input class="col s4 center-align" type="text" id="testo">
         </div>
             <button class="waves-effect waves-light btn green" id="insert">AGGIUNGI</button>
-            <ul class="collection" id="list"></ul>
+            <div class="container">
+                <ul class="collection" id="list"></ul>
+            </div>
     </div>
 
     <script>
         document.getElementById("insert").addEventListener('click', function(){
             var para = document.createElement("li");
             var ele = document.getElementById("testo").value;
+            var list = document.getElementById("list");
             var text = document.createTextNode(ele);
             para.appendChild(text);
-            document.getElementById("list").appendChild(para);
+            para.classList.add("collection-item");
+            list.appendChild(para);
             document.getElementById("testo").value = "";
-
+                para.addEventListener('click', function(){
+                    para.remove();
+                })
+                para.addEventListener('mouseover',function(){
+                    para.classList.add("red");
+                    para.classList.add("active");
+                })
+                para.addEventListener('mouseout', function(){
+                        para.classList.remove("red");
+                        para.classList.remove("active");
+                    })
         })
     </script>
 </body>
