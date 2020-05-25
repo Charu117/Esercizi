@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Calcolatrice</title>
+    <style>
+        .input.field.col.s3{
+            margin-left: 37.5%;
+        }
+        button{
+            margin-top: 2%;
+            margin: 1.5%;
+        }
+        p{
+            font-size: 25px;
+            font-weight: bolder;
+        }
+        
+    </style>
+</head>
+<center>
+<body>
+    <div class="row">
+        <div class="input field col s3">
+            <input type="text" id="val1" class="align center">
+            <label for="valore 1">Valore 1:</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input field col s3">
+            <input type="text" id="val2" class="align center">
+            <label for="valore 2">Valore 2:</label>
+        </div>
+    </div>
+    
+    <button class="waves-effect waves-light btn" id="somma">+</button>
+    <button class="waves-effect waves-light btn" id="sottrazione">-</button>
+    <button class="waves-effect waves-light btn" id="molti">x</button>
+    <button class="waves-effect waves-light btn" id="div">/</button><br>
+
+    
+
+    <p id="result"></p>
+
+</center>
+    <script>
+        class main{
+            sum(x,y){
+                var z;
+                return z = x + y;
+                
+            }
+            sub(x,y){
+                var z;
+                return z = x - y;
+            }
+            mul(x,y){
+                var z;
+                return z = x * y;
+            }
+            division(x,y){
+                var z;
+                return z = x / y;
+            }
+        }
+
+        document.getElementById("somma").addEventListener('click', function(){
+            var x = new main();
+            var a = parseInt(document.getElementById("val1").value);
+            var b = parseInt(document.getElementById("val2").value);
+            
+            var som = x.sum(a,b);
+           
+           
+            document.getElementById("result").innerHTML = "IL RISULTATO E' "+ som;
+
+            document.getElementById("val1").value = "";
+            document.getElementById("val2").value = "";
+            })
+        document.getElementById("sottrazione").addEventListener('click', function(){
+            var x = new main();
+            var a = parseInt(document.getElementById("val1").value);
+            var b = parseInt(document.getElementById("val2").value);
+            
+           
+            var sottra = x.sub(a,b);
+           
+            document.getElementById("result").innerHTML = "IL RISULTATO E' "+ sottra;
+
+            document.getElementById("val1").value = "";
+            document.getElementById("val2").value = "";
+        })
+        document.getElementById("molti").addEventListener('click', function(){
+            var x = new main();
+            var a = parseInt(document.getElementById("val1").value);
+            var b = parseInt(document.getElementById("val2").value);
+            
+           
+            var ris = x.mul(a,b);
+           
+            document.getElementById("result").innerHTML = "IL RISULTATO E' "+ ris;
+
+            document.getElementById("val1").value = "";
+            document.getElementById("val2").value = "";
+        })
+        document.getElementById("div").addEventListener('click', function(){
+            var x = new main();
+            var a = parseInt(document.getElementById("val1").value);
+            var b = parseInt(document.getElementById("val2").value);
+            
+           
+            var ris = x.division(a,b);
+           
+            document.getElementById("result").innerHTML = "IL RISULTATO E' "+ ris;
+
+            document.getElementById("val1").value = "";
+            document.getElementById("val2").value = "";
+        })
+    </script>
+</body>
+</html>
