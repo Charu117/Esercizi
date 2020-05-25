@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova</title>
+</head>
+<body>
+    <script>
+         class control{
+            user_name(user,len){
+                if (user.length < len){
+                    alert("Username shoud be longer than 6 characters");
+                }
+                else{
+                    return true;
+                }
+            }
+            valid_Email(email){
+                const valid = /\S+@\S+\.\S+/;
+                    return valid.test(email)
+                }
+            password(pwd,leng){
+                if (pwd.length < leng){
+                    alert("Password should be 8 characters long")
+                }
+                else{
+                    return true;
+                }
+            }
+            repass(pwd,repwd){
+                if (pwd === repwd){
+                    return true;
+                }
+                else{
+                    alert("your passwords don't match");
+                }
+                }
+            }
+
+            const x = new control();
+
+            let name = 'upeka';
+            const l = 6;
+            let validity = x.user_name(name,l);
+
+            let emailA = 'charu@gmail.com';
+
+            let e = x.valid_Email(emailA);
+
+            console.log(e);
+
+            let pass = '1236';
+            const lun = 8;
+            let checkPwd = x.password(pass,lun);
+
+            let rePass = '1456';
+            let checkRepwd = x.repass(pass,rePass);
+
+    </script>
+</body>
+</html>
