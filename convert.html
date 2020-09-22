@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Convertitore</title>
+    <style>
+        button#calc{
+            margin-top: 8%;
+            margin-left: -16%;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s3 offset-s4">
+              <input placeholder="Numero da conventire" id="input" type="number" class="validate">
+              
+            </div>
+    <div> 
+        <button id="calc" class="btn">Calcola</button>
+    </div>
+    
+    
+
+    <script>
+        document.getElementById("calc").addEventListener('click', function(){
+            var input = document.getElementById("input").value
+            var num;
+            var res;
+            var resto;
+            var quoziente;
+            var base = 2; 
+            var arr = []
+
+            num = input;
+            resto = num % base;
+            arr.push(resto);
+        
+            console.log(num, resto);
+
+            quoziente = num;
+            quoziente = parseInt(quoziente/base);
+            resto = quoziente % base;
+            arr.push(resto);
+            res = quoziente;
+            console.log(res, resto);
+        
+            while(res != 0){
+                res = quoziente;
+                    quoziente = parseInt(quoziente/base);
+                    resto = quoziente % base;
+                    arr.push(resto);
+                    res = quoziente;
+                    
+                    if (res != 0){
+                        console.log(res, resto);
+                    } else{
+                        console.log("Terminato la calcolazione");
+                
+                    }
+                    
+            }
+            
+            var reverse = arr.reverse();
+            reverse.splice(0,1);
+            var string = reverse.join(' ');
+
+            window.alert('Rappresentazione binaria: '+ string);
+        })
+        
+        
+    </script>
+</body>
+</html>
